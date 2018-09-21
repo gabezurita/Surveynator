@@ -1,4 +1,10 @@
 <fieldset>
+  <%= form.label :type, "Type" %><br />
+  <%= form.select :type, question_type %> <br />
+
+  <%= form.label :order, "Order" %><br />
+  <%= form.number_field :order %><br />
+
   <%= form.label :content, "Question" %><br />
   <%= form.text_area :content %><br />
 

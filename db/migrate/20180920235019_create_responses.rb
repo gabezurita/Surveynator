@@ -5,7 +5,7 @@ class CreateResponses < ActiveRecord::Migration[5.2]
       t.string :letter
       t.string :option
       t.integer :rating, null: false, default: 0
-      t.references :question, foreign_key: true
+      t.references :question, index: true
 
       t.timestamps
     end

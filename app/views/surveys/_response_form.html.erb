@@ -1,0 +1,27 @@
+<%= form_with(model: survey, local: true) do |form| %>
+
+  <%= hidden_field_tag :name, @survey.title %>
+
+  <% @questions.each do |question| %>
+
+    <%= hidden_field_tag :question, question.content %>
+
+    <!-- question title -->
+    <h3><%= form.label question.content %></h3>
+
+    <!-- questions answers -->
+    <ul>
+
+      <%= form.fields_for :responses do |builder| %>
+        <%= render 'response_fields', form: builder %>
+      <% end %>
+    </ul>
+
+  <% end %>
+
+  <!-- submit -->
+  <p>
+    <%= form.submit %>
+  </p>
+
+<% end %>

@@ -9,11 +9,6 @@
 <% for question in @survey.questions %>
   <li>
     <%=h question.content %>
-    <ul>
-    <% for answer in question.answers %>
-      <li><%=h answer.content %></li>
-    <% end %>
-    </ul>
   </li>
 <% end %>
 </ol>

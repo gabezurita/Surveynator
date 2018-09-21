@@ -1,17 +1,11 @@
-<h1>"Survey"</h1>
+<h1>Survey</h1>
 
 <p>
   <strong>Name:</strong>
   <%=h @survey.title %>
 </p>
 
-<ol>
-<% for question in @survey.questions %>
-  <li>
-    <%=h question.content %>
-  </li>
-<% end %>
-</ol>
+<%= render 'response_form', survey: @survey %>
 
 <p>
   <%= link_to "Edit", edit_survey_path(@survey) %> |

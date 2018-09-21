@@ -1,0 +1,3 @@
+class OpenEndedQuestion < Question
+
+end

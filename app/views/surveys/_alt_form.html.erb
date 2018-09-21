@@ -22,9 +22,13 @@
   </p>
 
   <h3>Questions:</h3>
-  <%= form.fields_for :questions do |builder| %>
-    <%= render 'question_fields', form: builder %>
-  <% end %>
+  <fieldset>
+    <%= builder.label :content, "Question" %><br />
+    <%= builder.text_area :content %><br />
+
+    <%= builder.label :_destroy, "Remove Question" %>
+    <%= builder.check_box :_destroy %>
+  </fieldset>
 
   <div class="actions">
     <%= form.submit %>

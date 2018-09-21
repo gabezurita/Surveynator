@@ -3,8 +3,9 @@ class CreateSurveys < ActiveRecord::Migration[5.2]
     create_table :surveys do |t|
       t.string :title
       t.text :description
-      t.references :owner, index: true
-      
+      t.references :owner, foreign_key: true
+      t.references :question, foreign_key: true
+
       t.timestamps
     end
   end

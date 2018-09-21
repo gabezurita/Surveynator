@@ -8,6 +8,7 @@ Bundler.require(*Rails.groups)
 
 module Surveynator
   class Application < Rails::Application
+    config.autoload_paths += %W(#{Rails.root}/app/models/question)
     # Initialize configuration defaults for originally generated Rails version.
     config.load_defaults 5.2
 

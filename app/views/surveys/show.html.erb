@@ -1,14 +1,14 @@
 <h1>Survey</h1>
 
-<p>
+<h2>
   <strong>Name:</strong>
   <%=h @survey.title %>
-</p>
+</h2>
 
-<%= render 'response_form', survey: @survey %>
+<p><%= @survey.description %></p>
+
+<%= render 'survey_show_form', survey: @survey %>
 
 <p>
-  <%= link_to "Edit", edit_survey_path(@survey) %> |
-  <%= link_to "Destroy", @survey, :confirm => 'Are you sure?', :method => :delete %> |
-  <%= link_to "View All", surveys_path %>
+  <%= link_to "View All Surveys", surveys_path %>
 </p>

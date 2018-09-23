@@ -1,0 +1,8 @@
+<fieldset>
+  <% @questions.each do |question| %>
+    <p><%= form.label question.content %></p>
+  <% end %>
+  <%= form.fields_for :responses do |builder| %>
+    <%= render 'response_fields', form: builder %>
+  <% end %>
+</fieldset>

@@ -10,8 +10,4 @@
 
   <%= form.label :_destroy, "Remove Question" %>
   <%= form.check_box :_destroy %>
-
-  <%= form.fields_for :responses do |builder| %>
-    <%= render 'response_fields', form: builder %>
-  <% end %>
 </fieldset>

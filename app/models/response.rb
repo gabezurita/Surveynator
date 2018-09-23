@@ -1,4 +1,4 @@
 class Response < ApplicationRecord
   belongs_to :question
-  belongs_to :respondant, class_name: "User"
+  belongs_to :respondant, class_name: "User", optional: true
 end

@@ -29,8 +29,10 @@ ActiveRecord::Schema.define(version: 2018_09_21_020431) do
     t.text "content"
     t.integer "order"
     t.bigint "survey_id"
+    t.bigint "response_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["response_id"], name: "index_questions_on_response_id"
     t.index ["survey_id"], name: "index_questions_on_survey_id"
   end
 
@@ -49,12 +51,16 @@ ActiveRecord::Schema.define(version: 2018_09_21_020431) do
     t.string "title"
     t.text "description"
     t.bigint "owner_id"
+    t.bigint "question_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["owner_id"], name: "index_surveys_on_owner_id"
+    t.index ["question_id"], name: "index_surveys_on_question_id"
   end
 
   create_table "users", force: :cascade do |t|
+    t.bigint "survey_id"
+    t.bigint "response_id"
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
     t.string "reset_password_token"
@@ -64,8 +70,8 @@ ActiveRecord::Schema.define(version: 2018_09_21_020431) do
     t.datetime "updated_at", null: false
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
+    t.index ["response_id"], name: "index_users_on_response_id"
+    t.index ["survey_id"], name: "index_users_on_survey_id"
   end
 
-  add_foreign_key "options", "questions"
-  add_foreign_key "questions", "surveys"
 end

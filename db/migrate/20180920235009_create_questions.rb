@@ -4,7 +4,8 @@ class CreateQuestions < ActiveRecord::Migration[5.2]
       t.string :type
       t.text :content
       t.integer :order
-      t.references :survey, foreign_key: true
+      t.references :survey, index: true
+      t.references :response, index: true
 
       t.timestamps
     end

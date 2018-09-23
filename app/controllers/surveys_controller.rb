@@ -15,6 +15,12 @@ class SurveysController < ApplicationController
     @questions.each {|q| q.responses.build }
   end
 
+  def show
+    @survey = Survey.find(params[:id])
+    @questions = @survey.questions
+    @questions.each { |q| q.responses.build }
+  end
+
   # GET /surveys/new
   def new
     @survey = Survey.new
@@ -77,6 +83,6 @@ class SurveysController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def survey_params
-      params.require(:survey).permit(:title, :description, questions_attributes: [:id, :_destroy, :survey_id, :type, :content, :order, { responses: [:id, :_destroy, :question_id, :content, :letter, :option, :rating] } ])
+      params.require(:survey).permit(:title, :description, questions_attributes: [:id, :_destroy, :survey_id, :type, :content, :order, { responses_attributes: [:id, :_destroy, :question_id, :content, :letter, :option, :rating] } ])
     end
 end
